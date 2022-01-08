@@ -1,0 +1,333 @@
+{% load currency %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Male_Fashion Template">
+    <meta name="keywords" content="Male_Fashion, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Male-Fashion | Template</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="/static/css/bootstrap.min.css+font-awesome.min.css+elegant-icons.css+magnific-popup.css+nice-select.css+owl.carousel.min.css+slicknav.min.css+style.css.pagespeed.cc.f6PPq5zNCp.css"
+          type="text/css"/>
+    <script type="text/javascript">
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+// Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        const csrftoken = getToken('csrftoken');
+
+        function getCookies(name) {
+            var CookieArr = document.cookie.split(";")
+            for(var i=0; i<CookieArr.length; i++) {
+                var cookiePar = CookieArr[i].split("=");
+                if(name ===cookiePar[0].trim()) {
+                    return decodeURIComponent(cookiePar[1]);
+                }
+
+            }
+        return null;
+        }
+        var user = '{{ request.user }}'
+        var cart = JSON.parse(getCookies('cart'))
+        console.log('cart:',cart)
+        if (cart == undefined){
+            cart ={}
+            console.log('cart was created')
+            document.cookie = 'cart=' + JSON.stringify(cart)+";domain=;path=/"
+        }
+                    console.log(cart)
+    </script>
+</head>
+<body>
+
+
+<div class="offcanvas-menu-overlay"></div>
+<div class="offcanvas-menu-wrapper">
+    <div class="offcanvas__option">
+        <div class="offcanvas__links">
+            <a href="#">Sign in</a>
+            <a href="#">FAQs</a>
+        </div>
+        <div class="offcanvas__top__hover">
+            <span>Usd <i class="arrow_carrot-down"></i></span>
+            <ul>
+                <li>USD</li>
+                <li>EUR</li>
+                <li>USD</li>
+            </ul>
+        </div>
+    </div>
+    <div class="offcanvas__nav__option">
+        <a href="#" class="search-switch">
+            <script data-pagespeed-no-defer>//<![CDATA[
+            (function () {
+                for (var g = "function" == typeof Object.defineProperties ? Object.defineProperty : function (b, c, a) {
+                    if (a.get || a.set) throw new TypeError("ES3 does not support getters and setters.");
+                    b != Array.prototype && b != Object.prototype && (b[c] = a.value)
+                }, h = "undefined" != typeof window && window === this ? this : "undefined" != typeof global && null != global ? global : this, k = ["String", "prototype", "repeat"], l = 0; l < k.length - 1; l++) {
+                    var m = k[l];
+                    m in h || (h[m] = {});
+                    h = h[m]
+                }
+                var n = k[k.length - 1], p = h[n], q = p ? p : function (b) {
+                    var c;
+                    if (null == this) throw new TypeError("The 'this' value for String.prototype.repeat must not be null or undefined");
+                    c = this + "";
+                    if (0 > b || 1342177279 < b) throw new RangeError("Invalid count value");
+                    b |= 0;
+                    for (var a = ""; b;) if (b & 1 && (a += c), b >>>= 1) c += c;
+                    return a
+                };
+                q != p && null != q && g(h, n, {configurable: !0, writable: !0, value: q});
+                var t = this;
+
+                function u(b, c) {
+                    var a = b.split("."), d = t;
+                    a[0] in d || !d.execScript || d.execScript("var " + a[0]);
+                    for (var e; a.length && (e = a.shift());) a.length || void 0 === c ? d[e] ? d = d[e] : d = d[e] = {} : d[e] = c
+                };
+
+                function v(b) {
+                    var c = b.length;
+                    if (0 < c) {
+                        for (var a = Array(c), d = 0; d < c; d++) a[d] = b[d];
+                        return a
+                    }
+                    return []
+                };
+
+                function w(b) {
+                    var c = window;
+                    if (c.addEventListener) c.addEventListener("load", b, !1); else if (c.attachEvent) c.attachEvent("onload", b); else {
+                        var a = c.onload;
+                        c.onload = function () {
+                            b.call(this);
+                            a && a.call(this)
+                        }
+                    }
+                };var x;
+
+                function y(b, c, a, d, e) {
+                    this.h = b;
+                    this.j = c;
+                    this.l = a;
+                    this.f = e;
+                    this.g = {
+                        height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+                        width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+                    };
+                    this.i = d;
+                    this.b = {};
+                    this.a = [];
+                    this.c = {}
+                }
+
+                function z(b, c) {
+                    var a, d, e = c.getAttribute("data-pagespeed-url-hash");
+                    if (a = e && !(e in b.c)) if (0 >= c.offsetWidth && 0 >= c.offsetHeight) a = !1; else {
+                        d = c.getBoundingClientRect();
+                        var f = document.body;
+                        a = d.top + ("pageYOffset" in window ? window.pageYOffset : (document.documentElement || f.parentNode || f).scrollTop);
+                        d = d.left + ("pageXOffset" in window ? window.pageXOffset : (document.documentElement || f.parentNode || f).scrollLeft);
+                        f = a.toString() + "," + d;
+                        b.b.hasOwnProperty(f) ? a = !1 : (b.b[f] = !0, a = a <= b.g.height && d <= b.g.width)
+                    }
+                    a && (b.a.push(e),
+                        b.c[e] = !0)
+                }
+
+                y.prototype.checkImageForCriticality = function (b) {
+                    b.getBoundingClientRect && z(this, b)
+                };
+                u("pagespeed.CriticalImages.checkImageForCriticality", function (b) {
+                    x.checkImageForCriticality(b)
+                });
+                u("pagespeed.CriticalImages.checkCriticalImages", function () {
+                    A(x)
+                });
+
+                function A(b) {
+                    b.b = {};
+                    for (var c = ["/static/img, "INPUT"], a = [], d = 0; d < c.length; ++d) a = a.concat(v(document.getElementsByTagName(c[d])));
+                        if (a.length && a[0].getBoundingClientRect) {
+                            for (d = 0; c = a[d]; ++d) z(b, c);
+                            a = "oh=" + b.l;
+                            b.f && (a += "&n=" + b.f);
+                            if (c = !!b.a.length) for (a += "&ci=" + encodeURIComponent(b.a[0]), d = 1; d < b.a.length; ++d) {
+                                var e = "," + encodeURIComponent(b.a[d]);
+                                131072 >= a.length + e.length && (a += e)
+                            }
+                            b.i && (e = "&rd=" + encodeURIComponent(JSON.stringify(B())), 131072 >= a.length + e.length && (a += e), c = !0);
+                            C = a;
+                            if (c) {
+                                d = b.h;
+                                b = b.j;
+                                var f;
+                                if (window.XMLHttpRequest) f =
+                                    new XMLHttpRequest; else if (window.ActiveXObject) try {
+                                    f = new ActiveXObject("Msxml2.XMLHTTP")
+                                } catch (r) {
+                                    try {
+                                        f = new ActiveXObject("Microsoft.XMLHTTP")
+                                    } catch (D) {
+                                    }
+                                }
+                                f && (f.open("POST", d + (-1 == d.indexOf("?") ? "?" : "&") + "url=" + encodeURIComponent(b)), f.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), f.send(a))
+                            }
+                        }
+                }
+
+                function B() {
+                    var b = {}, c;
+                    c = document.getElementsByTagName("/static/img);
+                    if (!c.length) return {};
+                    var a = c[0];
+                    if (!("naturalWidth" in a && "naturalHeight" in a)) return {};
+                    for (var d = 0; a = c[d]; ++d) {
+                        var e = a.getAttribute("data-pagespeed-url-hash");
+                        e && (!(e in b) && 0 < a.width && 0 < a.height && 0 < a.naturalWidth && 0 < a.naturalHeight || e in b && a.width >= b[e].o && a.height >= b[e].m) && (b[e] = {
+                            rw: a.width,
+                            rh: a.height,
+                            ow: a.naturalWidth,
+                            oh: a.naturalHeight
+                        })
+                    }
+                    return b
+                }
+
+                var C = "";
+                u("pagespeed.CriticalImages.getBeaconData", function () {
+                    return C
+                });
+                u("pagespeed.CriticalImages.Run", function (b, c, a, d, e, f) {
+                    var r = new y(b, c, a, e, f);
+                    x = r;
+                    d && w(function () {
+                        window.setTimeout(function () {
+                            A(r)
+                        }, 0)
+                    })
+                });
+            })();
+
+            pagespeed.CriticalImages.Run('/mod_pagespeed_beacon', 'https://preview.colorlib.com/theme/malefashion/index.html', '-ilGEe-FWC', true, false, 'CX-zpuz_Y14');
+            //]]></script>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAMAAADjcdz2AAAABGdBTUEAALGPC/xhBQAAAORQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsLyIwAAAEt0Uk5TABB1xu7MfxY/5fiteJ/x71A79sIgEaT9TAjexweh7V7+Kw/sqMSXzpRn5pJm6Kq+kMP7IwndugORPbETjk9D8GOK4/oByPKCFU551a0uSgAAAJ5JREFUGNNdy9UWggAURNGDHSi2mJhgYWJ3i/7///gAyFrO2+y5F0DweH0+fyCInVA4EhU9sbiUsHoylc4AZHN5GaBQLJXt00pVAJRa3fltNEWg1eYXtQ1oHRe6PUDruzDQgeHIhfEEUKYzpxu6CBjzxdKGlSQArFObLYCx++yt4aAf1ZNyvhyv6s0SQbxLD+35Mn/ixLzu+JfAn8jvLyoND535naQeAAAAAElFTkSuQmCC"
+                 alt="" data-pagespeed-url-hash="3756334862"
+                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
+        <a href="#"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQCAMAAAAs2N9uAAAABGdBTUEAALGPC/xhBQAAAQtQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4co3XAAAAFh0Uk5TABB4w9ejKBWR1ciKHSvk7JN2zPhgPurgfYfd9EYJxBEDfvykDAWg8x5kF12GAdahqNC1j2Hil7fGRTgZ63Wr5grK0wgLydwcviAP0SYt3yTFzg3Z2x8GlW7p2RQAAACzSURBVBjTVc7VEoJgEAXgY/4mdmIndjd2YSC2vv+TCGPB3uzON2d2F4BKrdHq9AAxGE1mC8SyUja7w+lye7w+fyBIh4BwMBIFYvFnIpkC0pksgxydl7IoFEtSS5cNqFShKHUN9YaSmi20O0oyd9FL9OUyYIfAaMz8ZTKdzYHFcrX+CUdtpL7dfW3Csfv3RGZvE4X/5snuIIjpo5f/b90uxzw5UYL89pljL9eb8sP7Y0Q+4wviFBaGoW6hzAAAAABJRU5ErkJggg=="
+                alt="" data-pagespeed-url-hash="935450538"
+                onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
+        <a href="{% url 'crate' %}"><img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAMAAABl5a5YAAAABGdBTUEAALGPC/xhBQAAAKhQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALN9IhgAAADd0Uk5TAANanaRrCwzD/LOn894hju4xGte9V2DsuZxoXBmi8uDi6NDAkBBA8AKRGASSFLvBcKbqScjMae646zAAAABtSURBVBjTY2AAAUYmZhZWNgY4YOfg5OLm4eWDC/ALCDIwCAmLQGRFxcTEJcSAQNJcSkxahkFWTl7BXFEeCECUuBKDsgqDqrkaSC2IElMHCWhoaoEEtHV0oQJIYBAJ6OkbIAFDIwZjEyUkYGoGAA8AEZBIoP/iAAAAAElFTkSuQmCC"
+                alt="" data-pagespeed-url-hash="952819918"
+                onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> <span>{{ cartitems }}</span></a>
+        <div class="price">{{ order.get_cart_total|currency}}</div>
+    </div>
+    <div id="mobile-menu-wrap"></div>
+</div>
+
+<header class="header">
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-7">
+                </div>
+                <div class="col-lg-6 col-md-5">
+                    <div class="header__top__right">
+                        <div class="header__top__links">
+                            <a href="#">Sign in</a>
+                            <a href="#">FAQs</a>
+                        </div>
+                        <div class="header__top__hover">
+                            <span>Usd <i class="arrow_carrot-down"></i></span>
+                            <ul>
+                                <li>USD</li>
+                                <li>EUR</li>
+                                <li>USD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="header__logo">
+                    <a href="./index.html"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMQAAAAXCAMAAABj0hDYAAAABGdBTUEAALGPC/xhBQAAAT5QTFRFAAAAERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERAAAAAAAAAAAAAAAAAAAAERERERERERERAAAAAAAAERERERERERERERERAAAAERERERERERERERERERERAAAAAAAAERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERAAAAAAAAAAAAERERERERERERERERERERERERERERERERERERAAAAERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERERAAAA5TY3egw5AQAAAGd0Uk5TAKLtJBfN4NvQiwbB2RIIx60BptwDuxF3RGYmoH/u3T36e1giGF1XOPeZqmCDOR/oWuohDdH2+TzF1w+033bMVYjsIhXeuwWO8SszwCjwm2f9SENsY5WJuazWCsrr4SxZllETvVTYJ+sBANoAAANSSURBVFjD1ZdpW9QwEMcjHiCXojTTFVrRotLiiTdqu966eN94363f/wu4k7tJWlbWh+chL6CdZpL/L5nMZMmOst9GdhKr7dq9Z3RsbC/ZHm18Aikmp+rW6X1o3T++TSDI1CTqnajpnTmAtoOzXoegqqpgg0EpDNIr7PepQtPSQQtsguLQCCqeM03zaCnHyGYhwgjFVPHWQZDDCyj5iDYcLYeDSCreoi2DWJwhx5jm49JyYmlIiBSlZACwZRDL84ScRM1Lp7jh9JlySAgMpnSAqV2Izbbl8qw4yOdW8P38BXy+OAQEHXQ5/yfEpctk+goqv7pKyOw1fLp+w4QAwNlycCAKDJwIqDleXKmWOL59ly6+p6AhKEQ4iIPFElzVLfSsKSkyDNTQA1HevEVu30Htd++R+/j/wcNlBZF0laioV4OggfwQNkA4vtolKoRk4JmsymkNoohkzyBREKkwdTwQ5Rohjx6j+idP8e+z50RD0EirimsQuf7Q80M4vpl+D4Rk1cCEKIwPMRWz6hWhHgiU+2KhlO0lMSBIfzWDfqZh8xcGBIgcZJ0RALb86EJtXyq/xEwqh4gAUpmQJQSn7wKwhUoVRMZc3ROn5L6SDK9JDSIxzkLXgIjkYEF9K3iZAJ9vqIpHmErJbJ0ZBdUQIFeM710iIECO3m2CIG84w9vZOoSZ/TMNUYh5eXLv+CEsXytvheq1I2JSQuAG5KxPT/QJFH8sdPghZt4hw/oqsSBCCIxAlhDgBLQPwvLNZABZuagjnqQl0qstHnXQxp4Ub8h9/6EsP67YVuMw/jOE7UuVIW2FMIaMeWcfxB/R6mu++KlfMywIJhaXLnUhouarE3h98X4r6LPhd8IPQT5/cfYnl+NldYjCSq0+CMdXZjB+npoh/GdiQAhPkInt5KMZECwL5kJUzw/h+GYiRnKmtRnCn53aIb46EN8URMavCWCfCT5RDKwupH4I2zcRt9uM72IzhKoTgVknWiHWPD9D5ySEKquRBWFW7FoJ1RC2r5kM8rYz4a/YbRCj332/vX/IIBMz56kNYeQefr9xs5PlW+g7SZy0Qsgfh+hHyYYQP3/99uaY1XVVJzImyoUgPXZ7i+tHol4n6r6k4Pe9DNrrhP8W2wTxFyOSargg3gb0AAAAAElFTkSuQmCC"
+                            alt="" data-pagespeed-url-hash="1536963489"
+                            onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <nav class="header__menu mobile-menu">
+
+                </nav>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <div class="header__nav__option">
+                    <a href="#" class="search-switch"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAMAAADjcdz2AAAABGdBTUEAALGPC/xhBQAAAORQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsLyIwAAAEt0Uk5TABB1xu7MfxY/5fiteJ/x71A79sIgEaT9TAjexweh7V7+Kw/sqMSXzpRn5pJm6Kq+kMP7IwndugORPbETjk9D8GOK4/oByPKCFU551a0uSgAAAJ5JREFUGNNdy9UWggAURNGDHSi2mJhgYWJ3i/7///gAyFrO2+y5F0DweH0+fyCInVA4EhU9sbiUsHoylc4AZHN5GaBQLJXt00pVAJRa3fltNEWg1eYXtQ1oHRe6PUDruzDQgeHIhfEEUKYzpxu6CBjzxdKGlSQArFObLYCx++yt4aAf1ZNyvhyv6s0SQbxLD+35Mn/ixLzu+JfAn8jvLyoND535naQeAAAAAElFTkSuQmCC"
+                            alt="" data-pagespeed-url-hash="3756334862"
+                            onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
+                    <a href="#"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQCAMAAAAs2N9uAAAABGdBTUEAALGPC/xhBQAAAQtQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4co3XAAAAFh0Uk5TABB4w9ejKBWR1ciKHSvk7JN2zPhgPurgfYfd9EYJxBEDfvykDAWg8x5kF12GAdahqNC1j2Hil7fGRTgZ63Wr5grK0wgLydwcviAP0SYt3yTFzg3Z2x8GlW7p2RQAAACzSURBVBjTVc7VEoJgEAXgY/4mdmIndjd2YSC2vv+TCGPB3uzON2d2F4BKrdHq9AAxGE1mC8SyUja7w+lye7w+fyBIh4BwMBIFYvFnIpkC0pksgxydl7IoFEtSS5cNqFShKHUN9YaSmi20O0oyd9FL9OUyYIfAaMz8ZTKdzYHFcrX+CUdtpL7dfW3Csfv3RGZvE4X/5snuIIjpo5f/b90uxzw5UYL89pljL9eb8sP7Y0Q+4wviFBaGoW6hzAAAAABJRU5ErkJggg=="
+                            alt="" data-pagespeed-url-hash="935450538"
+                            onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a>
+                    <a href="{% url 'crate' %}"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAMAAABl5a5YAAAABGdBTUEAALGPC/xhBQAAAKhQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALN9IhgAAADd0Uk5TAANanaRrCwzD/LOn894hju4xGte9V2DsuZxoXBmi8uDi6NDAkBBA8AKRGASSFLvBcKbqScjMae646zAAAABtSURBVBjTY2AAAUYmZhZWNgY4YOfg5OLm4eWDC/ALCDIwCAmLQGRFxcTEJcSAQNJcSkxahkFWTl7BXFEeCECUuBKDsgqDqrkaSC2IElMHCWhoaoEEtHV0oQJIYBAJ6OkbIAFDIwZjEyUkYGoGAA8AEZBIoP/iAAAAAElFTkSuQmCC"
+                            alt="" data-pagespeed-url-hash="952819918"
+                            onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                        <span>{{ cartitems }}</span></a>
+                    <div class="price">{{ order.get_cart_total|currency}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open"><i class="fa fa-bars"></i></div>
+    </div>
+</header>
+
+{% block content %}
+
+{% endblock %}
+
+
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js+jquery.nice-select.min.js.pagespeed.jc.ekxuW4by58.js"></script>
+<script>eval(mod_pagespeed_JZzsHwPKPa);</script>
+<script>eval(mod_pagespeed_yAX9X7dlYR);</script>
+<script src="/static/js/jquery.nicescroll.min.js+jquery.magnific-popup.min.js+jquery.countdown.min.js.pagespeed.jc.nQBr1vqAX8.js"></script>
+<script>eval(mod_pagespeed_ICtRagVbiv);</script>
+<script>eval(mod_pagespeed_0Tm96Yey2q);</script>
+<script>eval(mod_pagespeed__0kegk3Rgl);</script>
+<script src="/static/js/jquery.slicknav.js"></script>
+<script src="/static/js/mixitup.min.js"></script>
+<script src="/static/js/owl.carousel.min.js"></script>
+<script src="/static/js/main.js"></script>
+</body>
+</html>

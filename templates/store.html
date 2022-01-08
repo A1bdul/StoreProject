@@ -1,0 +1,207 @@
+{% extends 'index.html' %}
+{% load ratings %}
+{% load humanize %}
+{% load image_tags %}
+<div class="upgrade">
+{% block content %}
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="filter__controls">
+                    <li class="active" data-filter="*">Best Sellers</li>
+                    <li data-filter=".new-arrivals">New Arrivals</li>
+                    <li data-filter=".hot-sales">Hot Sales</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row product__filter">
+
+            {% for product in products %}
+            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6">
+                <div class="product__item">
+                    <div class="product__item__pic set-bg" data-setbg="{{  product.image.0 |read_image_as_base64 }}">
+                        <span class="label">New</span>
+                        <ul class="product__hover">
+                            <li><a href="#">
+                                <img src=":image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQCAMAAAAs2N9uAAAABGdBTUEAALGPC/xhBQAAAQtQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4co3XAAAAFh0Uk5TABB4w9ejKBWR1ciKHSvk7JN2zPhgPurgfYfd9EYJxBEDfvykDAWg8x5kF12GAdahqNC1j2Hil7fGRTgZ63Wr5grK0wgLydwcviAP0SYt3yTFzg3Z2x8GlW7p2RQAAACzSURBVBjTVc7VEoJgEAXgY/4mdmIndjd2YSC2vv+TCGPB3uzON2d2F4BKrdHq9AAxGE1mC8SyUja7w+lye7w+fyBIh4BwMBIFYvFnIpkC0pksgxydl7IoFEtSS5cNqFShKHUN9YaSmi20O0oyd9FL9OUyYIfAaMz8ZTKdzYHFcrX+CUdtpL7dfW3Csfv3RGZvE4X/5snuIIjpo5f/b90uxzw5UYL89pljL9eb8sP7Y0Q+4wviFBaGoW6hzAAAAABJRU5ErkJg"
+                                    alt="" data-pagespeed-url-hash="935450538"
+                                    onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></li>
+                            <li><a href="#"><img src="/static/img/icon/xcompare.png.pagespeed.ic.UIWeUFOM61.png" alt=""
+                                                 data-pagespeed-url-hash="3485206841"
+                                                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                <span>Compare</span></a></li>
+                            <li><a href="#"><img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAARCAMAAADjcdz2AAAABGdBTUEAALGPC/xhBQAAAORQTFRFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFsLyIwAAAEt0Uk5TABB1xu7MfxY/5fiteJ/x71A79sIgEaT9TAjexweh7V7+Kw/sqMSXzpRn5pJm6Kq+kMP7IwndugORPbETjk9D8GOK4/oByPKCFU551a0uSgAAAJ5JREFUGNNdy9UWggAURNGDHSi2mJhgYWJ3i/7///gAyFrO2+y5F0DweH0+fyCInVA4EhU9sbiUsHoylc4AZHN5GaBQLJXt00pVAJRa3fltNEWg1eYXtQ1oHRe6PUDruzDQgeHIhfEEUKYzpxu6CBjzxdKGlSQArFObLYCx++yt4aAf1ZNyvhyv6s0SQbxLD+35Mn/ixLzu+JfAn8jvLyoND535naQeAAAAAElFTkSuQmCC"
+                                    alt="" data-pagespeed-url-hash="3756334862"
+                                    onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                        <h6>{{ product.name|cut:"0" }}
+
+                        </h6>
+                        <a href="#" class="add-cart" data-product="{{ product.id }}"  data-action="add">+ Add To Cart</a>
+                        <form method="get" action="/review" id="review_form">
+                            <input type="hidden" name="product_id" id="product_id">
+                        <div class="rating">
+                            <i class="fa fa-star-o" name="rate" id="1"></i>
+                            <i class="fa fa-star-o" name="rate" id="2"></i>
+                            <i class="fa fa-star-o" name="rate" id="3"></i>
+                            <i class="fa fa-star-o" name="rate" id="4"></i>
+                            <i class="fa fa-star-o" name="rate" id="5"></i>
+                        </div>
+                            </form>
+                        <script type="text/javascript">
+        var productId ='{{ product.id }}'
+        console.log(productId)
+    </script>
+                        <h5><span id="">₦</span>{{ product.price|floatformat:2|intcomma }}</h5>
+                        <div class="product__color__select">
+                            <label for="pc-1">
+                                <input type="radio" id="pc-1">
+                            </label>
+                            <label class="active black" for="pc-2">
+                                <input type="radio" id="pc-2">
+                            </label>
+                            <label class="grey" for="pc-3">
+                                <input type="radio" id="pc-3">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<section class="categories spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="categories__text">
+                    <h2>Clothings Hot <br/> <span>Shoe Collection</span> <br/> Accessories</h2>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="categories__hot__deal">
+                    <img src="/static/img/xproduct-sale.png.pagespeed.ic.JhWwWRcVR-.png" alt=""
+                         data-pagespeed-url-hash="1370157075"
+                         onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                    <div class="hot__deal__sticker">
+                        <span>Sale Of</span>
+                        <h5>$29.99</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-1">
+                <div class="categories__deal__countdown">
+                    <span>Deal Of The Week</span>
+                    <h2>Multi-pocket Chest Bag Black</h2>
+                    <div class="categories__deal__countdown__timer" id="countdown">
+                        <div class="cd-item">
+                            <span>3</span>
+                            <p>Days</p>
+                        </div>
+                        <div class="cd-item">
+                            <span>1</span>
+                            <p>Hours</p>
+                        </div>
+                        <div class="cd-item">
+                            <span>50</span>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="cd-item">
+                            <span>18</span>
+                            <p>Seconds</p>
+                        </div>
+                    </div>
+                    <a href="#" class="primary-btn">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="instagram spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="instagram__pic">
+                    <div class="instagram__pic__item set-bg" data-setbg="/static/img/instagram/instagram-1.jpg"></div>
+                    <div class="instagram__pic__item set-bg" data-setbg="/static/img/instagram/instagram-2.jpg"></div>
+                    <div class="instagram__pic__item set-bg" data-setbg="/static/img/instagram/instagram-3.jpg"></div>
+                    <div class="instagram__pic__item set-bg" data-setbg="/static/img/instagram/instagram-4.jpg"></div>
+                    <div class="instagram__pic__item set-bg" data-setbg="/static/img/instagram/instagram-5.jpg"></div>
+                    <div class="instagram__pic__item set-bg" data-setbg="/static/img/instagram/instagram-6.jpg"></div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="instagram__text">
+                    <h2>Instagram</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                    <h3>#Male_Fashion</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="latest spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>Latest News</span>
+                    <h2>Fashion New Trends</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="/static/img/blog/blog-1.jpg"></div>
+                    <div class="blog__item__text">
+                        <span><img src="/static/img/icon/xcalendar.png.pagespeed.ic.GXy2gYWDh7.png" alt=""
+                                   data-pagespeed-url-hash="2804280352"
+                                   onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> 16 February 2020</span>
+                        <h5>What Curling Irons Are The Best Ones</h5>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="/static/img/blog/blog-2.jpg"></div>
+                    <div class="blog__item__text">
+                        <span><img src="/static/img/icon/xcalendar.png.pagespeed.ic.GXy2gYWDh7.png" alt=""
+                                   data-pagespeed-url-hash="2804280352"
+                                   onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> 21 February 2020</span>
+                        <h5>Eternity Bands Do Last Forever</h5>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="/static/img/blog/blog-3.jpg"></div>
+                    <div class="blog__item__text">
+                        <span><img src="/static/img/icon/xcalendar.png.pagespeed.ic.GXy2gYWDh7.png" alt=""
+                                   data-pagespeed-url-hash="2804280352"
+                                   onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> 28 February 2020</span>
+                        <h5>The Health Benefits Of Sunglasses</h5>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
+</div>
