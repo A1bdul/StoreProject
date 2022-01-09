@@ -28,7 +28,6 @@ def cookieCart(request):
                 'product': {
                     'id': product.id,
                     'name': product.name,
-                    'image.cdn_url': product.image.cdn_url,
                     'price': product.price
                 },
                 'quantity': cart[i]['quantity'],

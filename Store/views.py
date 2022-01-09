@@ -1,19 +1,56 @@
 import datetime
 import json
-
 from django.contrib.auth.decorators import login_required
+from django.contrib.humanize.templatetags.humanize import intcomma
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render
 from django.template.loader import render_to_string
-
+from django.views.generic import TemplateView, View
 from .models import *
-
-# Create your views here.
 from .utils import cookieCart, cratedata, guestorder
 
 
+# Create your views here.
+#
+# class MainView(TemplateView):
+#     template_name = 'Shopv1.html'
+#
+
+def currency(dollars):
+    dollars = round(float(dollars), 2)
+    return str("₦%s%s" % (intcomma(int(dollars)), ("%0.2f" % dollars)[-3:]))
+
+
+class ProductView(View):
+    def get(self, *args, **kwargs):
+        data=[]
+        upper = kwargs.get('start')
+        lower = upper - 12
+        products = list(Product.objects.values()[lower:upper])
+        for i in products:
+            product = Product.objects.get(id=i['id'])
+            image=list(product.image)
+            # image1 = str(product.image[0].cdn_url)
+            # image2= str(product.image[1])
+            item = {
+                'product': {
+                    'id': product.id,
+                    'name': product.name.title(),
+                    'price': currency(dollars=product.price),
+                    'image':image,
+                    # 'image':image,
+                    # 'image2':image2
+                }
+            }
+            print(item['product']['image'])
+            data.append(item)
+        max_size = True if upper >= len(Product.objects.all()) else False
+        return JsonResponse({'data': data, 'max_size': max_size}, safe=False)
+
+
 def store(request):
-    products = Product.objects.all()
+    products = list(Product.objects.all())
+    print(request.headers['User-Agent'])
     data = cratedata(request)
     context = {
         'products': products,
